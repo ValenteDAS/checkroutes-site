@@ -3,17 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CheckRoutes - Reduce hasta 60% el coste de tus APIs de LLM</title>
-
-  <!-- Favicon SVG in-line -->
-  <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%23C82BF9'/><stop offset='50%' style='stop-color:%23692AE8'/><stop offset='100%' style='stop-color:%230C07D1'/></linearGradient></defs><circle cx='50' cy='50' r='45' fill='url(%23g)'/><path d='M30 45 L45 60 L70 35' stroke='white' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet">
-
-  <!-- TailwindCSS CDN + Configuración -->
+  <meta name="description" content="CheckRoutes: Optimiza hasta 60% los costos de tus APIs de IA con una solución sencilla e inteligente.">
+  <meta name="keywords" content="CheckRoutes, IA, ahorro, optimización, GPT-4o, GPT-3.5-turbo, APIs">
+  <title>CheckRoutes - Ahorra hasta 60% en APIs de IA</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%23C82BF9'/><stop offset='50%' style='stop-color:%23692AE8'/><stop offset='100%' style='stop-color:%230C07D1'/></linearGradient></defs><circle cx='50' cy='50' r='45' fill='url(%23g)'/><path d='M30 45 L45 60 L70 35' stroke='white' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -23,35 +17,26 @@
             'primary-dark': '#0D0B17',
             'secondary-dark': '#1E1A38',
             'accent-turquoise': '#00EAFC',
-            'text-light': '#E0E0E5'
+            'text-light': '#E0E0E5',
+            'primary-mid': '#14122A'
           },
           fontFamily: {
-            'montserrat': ['Montserrat','sans-serif'],
-            'inter': ['Inter','sans-serif']
+            'montserrat': ['Montserrat', 'sans-serif'],
+            'inter': ['Inter', 'sans-serif']
           }
         }
       }
     }
   </script>
-
-  <!-- Tu CSS personalizado -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="bg-primary-dark text-text-light font-inter scroll-smooth">
-
-  <!-- Navbar -->
   <nav class="fixed top-0 w-full bg-primary-dark/90 backdrop-blur-sm z-50 border-b border-secondary-dark">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center">
           <svg class="w-8 h-8 mr-3" viewBox="0 0 100 100">
-            <defs>
-              <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#C82BF9"/>
-                <stop offset="50%" style="stop-color:#692AE8"/>
-                <stop offset="100%" style="stop-color:#0C07D1"/>
-              </linearGradient>
-            </defs>
+            <defs><linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#C82BF9"/><stop offset="50%" style="stop-color:#692AE8"/><stop offset="100%" style="stop-color:#0C07D1"/></linearGradient></defs>
             <circle cx="50" cy="50" r="45" fill="url(#logoGradient)"/>
             <path d="M30 45 L45 60 L70 35" stroke="white" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -59,341 +44,256 @@
         </div>
         <div class="hidden md:flex space-x-8">
           <a href="#como-funciona" class="hover:text-accent-turquoise transition-colors">Cómo funciona</a>
-          <a href="#beneficios"      class="hover:text-accent-turquoise transition-colors">Beneficios</a>
-          <a href="#precios"         class="hover:text-accent-turquoise transition-colors">Precios</a>
-          <a href="#contacto"        class="hover:text-accent-turquoise transition-colors">Contacto</a>
+          <a href="#beneficios" class="hover:text-accent-turquoise transition-colors">Beneficios</a>
+          <a href="#precios" class="hover:text-accent-turquoise transition-colors">Precios</a>
+          <a href="#contacto" class="hover:text-accent-turquoise transition-colors">Contacto</a>
         </div>
         <button id="mobile-menu-btn" class="md:hidden text-text-light">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
         </button>
       </div>
     </div>
     <div id="mobile-menu" class="hidden bg-primary-dark/95">
       <a href="#como-funciona" class="block px-4 py-2 hover:bg-primary-mid">Cómo funciona</a>
-      <a href="#beneficios"      class="block px-4 py-2 hover:bg-primary-mid">Beneficios</a>
-      <a href="#precios"         class="block px-4 py-2 hover:bg-primary-mid">Precios</a>
-      <a href="#contacto"        class="block px-4 py-2 hover:bg-primary-mid">Contacto</a>
+      <a href="#beneficios" class="block px-4 py-2 hover:bg-primary-mid">Beneficios</a>
+      <a href="#precios" class="block px-4 py-2 hover:bg-primary-mid">Precios</a>
+      <a href="#contacto" class="block px-4 py-2 hover:bg-primary-mid">Contacto</a>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="min-h-screen gradient-bg flex items-center justify-center px-4">
+  <section class="min-h-screen gradient-bg-dark flex items-center justify-center px-4">
     <div class="max-w-4xl mx-auto text-center">
-      <h1 class="font-montserrat font-bold text-5xl md:text-7xl text-white mb-6 leading-tight">
+      <h1 class="font-montserrat font-bold text-5xl md:text-7xl text-white mb-6 gradient-text">
         Ahorra hasta <span class="text-accent-turquoise">60%</span> en tu factura de IA
       </h1>
-      <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
-        Routing inteligente entre GPT-4o y GPT-3.5-turbo para optimizar costes sin sacrificar calidad
+      <p class="text-xl md:text-2xl text-white/90 mb-8">
+        Optimiza tus costos con una solución sencilla e inteligente para tus APIs de IA
       </p>
-      <button class="bg-accent-turquoise text-primary-dark font-semibold px-8 py-4 rounded-lg text-lg hover-glow transition-all duration-300 transform hover:scale-105">
+      <button class="cta-button bg-accent-turquoise text-primary-dark font-semibold px-8 py-4 rounded-lg text-lg hover-glow transition-all duration-300 transform hover:scale-105">
         Comenzar prueba gratuita
       </button>
     </div>
   </section>
 
-  <!-- Cómo funciona -->
   <section id="como-funciona" class="py-20 bg-secondary-dark">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="font-montserrat font-bold text-4xl text-center text-white mb-16">Cómo funciona</h2>
       <div class="grid md:grid-cols-4 gap-8">
-        <!-- Paso 1 -->
         <div class="text-center">
           <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-3.586l4.293-4.293A6 6 0 0119 9z"
-                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="Conectar fácilmente">
+              <path d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-3.586l4.293-4.293A6 6 0 0119 9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
             </svg>
           </div>
-          <h3 class="font-semibold text-xl text-white mb-3">1. API Key</h3>
-          <p class="text-text-light">Conecta tu clave de OpenAI existente de forma segura</p>
+          <h3 class="font-semibold text-xl text-white mb-3">1. Conecta fácilmente</h3>
+          <p class="text-text-light">Vincula tu cuenta en minutos con un proceso simple y seguro</p>
         </div>
-        <!-- Paso 2 -->
         <div class="text-center">
           <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="Personaliza tus reglas">
+              <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
             </svg>
           </div>
-          <h3 class="font-semibold text-xl text-white mb-3">2. Policy.json</h3>
-          <p class="text-text-light">Define reglas de routing personalizadas según tus necesidades</p>
+          <h3 class="font-semibold text-xl text-white mb-3">2. Personaliza tus reglas</h3>
+          <p class="text-text-light">Configura cómo optimizar tus costos según tus necesidades</p>
         </div>
-        <!-- Paso 3 -->
         <div class="text-center">
           <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"
-                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="Optimiza automáticamente">
+              <path d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
             </svg>
           </div>
-          <h3 class="font-semibold text-xl text-white mb-3">3. Router</h3>
-          <p class="text-text-light">Nuestro algoritmo decide automáticamente el modelo óptimo</p>
+          <h3 class="font-semibold text-xl text-white mb-3">3. Optimiza automáticamente</h3>
+          <p class="text-text-light">Nuestra tecnología elige la mejor opción para ahorrar</p>
         </div>
-        <!-- Paso 4 -->
         <div class="text-center">
           <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="Monitorea tus ahorros">
+              <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
             </svg>
           </div>
-          <h3 class="font-semibold text-xl text-white mb-3">4. Dashboard</h3>
-          <p class="text-text-light">Monitorea ahorros y rendimiento en tiempo real</p>
+          <h3 class="font-semibold text-xl text-white mb-3">4. Monitorea tus ahorros</h3>
+          <p class="text-text-light">Sigue tus resultados en tiempo real con un panel intuitivo</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Beneficios -->
   <section id="beneficios" class="py-20 bg-primary-dark">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="font-montserrat font-bold text-4xl text-center text-white mb-16">Beneficios clave</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-secondary-dark p-8 rounded-xl border border-gray-700">
-          <div class="w-12 h-12 mb-6 rounded-lg bg-accent-turquoise/20 flex items-center justify-center">
-            <svg class="w-6 h-6 text-accent-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
-                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-            </svg>
-          </div>
-          <h3 class="font-semibold text-xl text-white mb-4">Ahorro de costes</h3>
-          <p class="text-text-light">Reduce hasta 60% tu factura de IA sin comprometer la calidad de las respuestas</p>
-        </div>
-        <div class="bg-secondary-dark p-8 rounded-xl border border-gray-700">
-          <div class="w-12 h-12 mb-6 rounded-lg bg-accent-turquoise/20 flex items-center justify-center">
-            <svg class="w-6 h-6 text-accent-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M13 10V3L4 14h7v7l9-11h-7z"
-                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-            </svg>
-          </div>
-          <h3 class="font-semibold text-xl text-white mb-4">Integración cero-touch</h3>
-          <p class="text-text-light">Implementación en minutos. Solo cambia la URL de tu endpoint existente</p>
-        </div>
-        <div class="bg-secondary-dark p-8 rounded-xl border border-gray-700">
-          <div class="w-12 h-12 mb-6 rounded-lg bg-accent-turquoise/20 flex items-center justify-center">
-            <svg class="w-6 h-6 text-accent-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
-                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-            </svg>
-          </div>
-          <h3 class="font-semibold text-xl text-white mb-4">Escalabilidad instantánea</h3>
-          <p class="text-text-light">Maneja millones de requests con latencia ultra-baja y alta disponibilidad</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Demo Section -->
-  <section class="py-20 bg-secondary-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="grid md:grid-cols-2 gap-12">
         <div>
-          <h2 class="font-montserrat font-bold text-4xl text-white mb-6">Ve el ahorro en acción</h2>
-          <p class="text-xl text-text-light mb-8">
-            Nuestro dashboard te muestra en tiempo real cómo CheckRoutes optimiza tus costes de IA
-          </p>
-          <div class="bg-primary-dark p-6 rounded-lg border border-gray-700 font-mono text-sm">
-            <div class="text-accent-turquoise mb-2">$ curl -X POST https://api.checkroute.ai/v1/chat/completions \</div>
-            <div class="text-text-light mb-2">  -H "Authorization: Bearer YOUR_API_KEY" \</div>
-            <div class="text-text-light mb-2">  -H "Content-Type: application/json" \</div>
-            <div class="text-text-light">  -d '{"model": "gpt-4o", "messages": [...]}'</div>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-secondary-dark p-8 rounded-xl border border-gray-700">
+              <div class="w-12 h-12 mb-6 rounded-lg bg-accent-turquoise/20 flex items-center justify-center">
+                <svg class="w-6 h-6 text-accent-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="Ahorro de costes">
+                  <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                </svg>
+              </div>
+              <h3 class="font-semibold text-xl text-white mb-4">Ahorro de costes</h3>
+              <p class="text-text-light">Reduce hasta 60% tu factura mensual sin comprometer calidad</p>
+            </div>
+            <div class="bg-secondary-dark p-8 rounded-xl border border-gray-700">
+              <div class="w-12 h-12 mb-6 rounded-lg bg-accent-turquoise/20 flex items-center justify-center">
+                <svg class="w-6 h-6 text-accent-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="Integración rápida">
+                  <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                </svg>
+              </div>
+              <h3 class="font-semibold text-xl text-white mb-4">Integración rápida</h3>
+              <p class="text-text-light">Configura todo en menos de 5 minutos, sin complicaciones</p>
+            </div>
+            <div class="bg-secondary-dark p-8 rounded-xl border border-gray-700">
+              <div class="w-12 h-12 mb-6 rounded-lg bg-accent-turquoise/20 flex items-center justify-center">
+                <svg class="w-6 h-6 text-accent-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="Dashboard en tiempo real">
+                  <path d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                </svg>
+              </div>
+              <h3 class="font-semibold text-xl text-white mb-4">Dashboard en tiempo real</h3>
+              <p class="text-text-light">Monitorea tus ahorros y métricas al instante</p>
+            </div>
           </div>
         </div>
-        <div class="bg-primary-dark p-6 rounded-xl border border-gray-700">
-          <h3 class="text-white font-semibold mb-4">Ahorro acumulado</h3>
-          <div class="h-64 relative">
-            <svg class="w-full h-full" viewBox="0 0 400 200">
-              <defs>
-                <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" style="stop-color:#00EAFC;stop-opacity:0.3"/>
-                  <stop offset="100%" style="stop-color:#00EAFC;stop-opacity:0"/>
-                </linearGradient>
-              </defs>
-              <polyline fill="none" stroke="#00EAFC" stroke-width="3"
-                        points="20,180 80,160 140,120 200,80 260,60 320,40 380,20"/>
-              <polygon fill="url(#chartGradient)"
-                       points="20,180 80,160 140,120 200,80 260,60 320,40 380,20 380,180"/>
-              <text x="200" y="195" text-anchor="middle"
-                    class="text-xs fill-current text-text-light">Tiempo</text>
-              <text x="10" y="15"
-                    class="text-xs fill-current text-accent-turquoise">$2,400 ahorrados</text>
-            </svg>
+        <div>
+          <h3 class="font-montserrat font-bold text-2xl text-white mb-4">Ahorro acumulado</h3>
+          <div class="bg-primary-dark p-6 rounded-xl border border-gray-700">
+            <div class="h-64 relative">
+              <svg class="w-full h-full" viewBox="0 0 400 200">
+                <defs>
+                  <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#00EAFC;stop-opacity:0.3"/>
+                    <stop offset="100%" style="stop-color:#00EAFC;stop-opacity:0"/>
+                  </linearGradient>
+                </defs>
+                <polyline fill="none" stroke="#00EAFC" stroke-width="3"
+                          points="20,180 80,160 140,120 200,80 260,60 320,40 380,20"/>
+                <polygon fill="url(#chartGradient)"
+                         points="20,180 80,160 140,120 200,80 260,60 320,40 380,20 380,180"/>
+                <text x="200" y="195" text-anchor="middle"
+                      class="text-xs fill-current text-text-light">Tiempo</text>
+                <text x="10" y="15"
+                      class="text-xs fill-current text-accent-turquoise">$2,400 ahorrados</text>
+              </svg>
+            </div>
+            <p class="text-center text-accent-turquoise text-xl mt-4">¡Hasta $2,400 ahorrados en 6 meses!</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonios -->
+  <section id="precios" class="py-20 bg-secondary-dark">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-montserrat font-bold text-4xl text-center text-white mb-16">Planes y precios</h2>
+      <div class="bg-primary-dark rounded-2xl border border-gray-700 p-8 text-center">
+        <h3 class="font-montserrat font-bold text-2xl text-white mb-4">Plan Profesional</h3>
+        <p class="text-4xl font-bold text-accent-turquoise mb-4">Prueba gratuita 7 días</p>
+        <p class="text-text-light mb-4">Después: Desde USD 29/mes + 10% del ahorro generado</p>
+        <ul class="text-left space-y-3 mb-8">
+          <li class="flex items-center text-text-light">
+            <svg class="w-5 h-5 text-accent-turquoise mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </svg>
+            Optimización automática de costos
+          </li>
+          <li class="flex items-center text-text-light">
+            <svg class="w-5 h-5 text-accent-turquoise mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </svg>
+            Panel de control en tiempo real
+          </li>
+          <li class="flex items-center text-text-light">
+            <svg class="w-5 h-5 text-accent-turquoise mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </svg>
+            Configuración personalizada
+          </li>
+          <li class="flex items-center text-text-light">
+            <svg class="w-5 h-5 text-accent-turquoise mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </svg>
+            Soporte técnico prioritario
+          </li>
+          <li class="flex items-center text-text-light">
+            <svg class="w-5 h-5 text-accent-turquoise mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </svg>
+            Disponibilidad garantizada 99.9%
+          </li>
+        </ul>
+        <button class="cta-button w-full bg-accent-turquoise text-primary-dark font-semibold py-3 rounded-lg hover-glow transition-all duration-300">
+          Comenzar prueba gratuita
+        </button>
+      </div>
+    </div>
+  </section>
+
   <section class="py-20 bg-primary-dark">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="font-montserrat font-bold text-4xl text-center text-white mb-16">Lo que dicen nuestros clientes</h2>
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-secondary-dark p-8 rounded-xl border border-gray-700">
-          <div class="flex items-center mb-4">
-            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold">
-              M
-            </div>
-            <div class="ml-4">
-              <h4 class="text-white font-semibold">María González</h4>
-              <p class="text-text-light text-sm">CTO, TechStartup</p>
-            </div>
+        <div class="bg-secondary-dark p-8 rounded-xl border border-gray-700 flex items-start">
+          <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-4">M</div>
+          <div>
+            <h4 class="text-white font-semibold">María González</h4>
+            <p class="text-text-light text-sm">CTO, TechStartup</p>
+            <p class="text-text-light italic mt-2">"CheckRoutes nos ahorró un 55% en costos de IA. ¡La configuración fue súper sencilla!"</p>
           </div>
-          <p class="text-text-light italic">
-            "CheckRoutes nos ha permitido reducir nuestros costes de IA en un 55% sin afectar la calidad. La integración fue increíblemente sencilla."
-          </p>
         </div>
-        <div class="bg-secondary-dark p-8 rounded-xl border border-gray-700">
-          <div class="flex items-center mb-4">
-            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold">
-              J
-            </div>
-            <div class="ml-4">
-              <h4 class="text-white font-semibold">Jorge Martín</h4>
-              <p class="text-text-light text-sm">Lead Developer, AICompany</p>
-            </div>
+        <div class="bg-secondary-dark p-8 rounded-xl border border-gray-700 flex items-start">
+          <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-4">J</div>
+          <div>
+            <h4 class="text-white font-semibold">Jorge Martín</h4>
+            <p class="text-text-light text-sm">Lead Developer, AICompany</p>
+            <p class="text-text-light italic mt-2">"En 5 minutos ya veíamos ahorros. El panel de control es increíblemente claro."</p>
           </div>
-          <p class="text-text-light italic">
-            "La facilidad de integración es impresionante. En 5 minutos ya estábamos ahorrando dinero. El dashboard es muy intuitivo."
-          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Precios -->
-  <section id="precios" class="py-20 bg-secondary-dark">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="font-montserrat font-bold text-4xl text-center text-white mb-16">Planes y precios</h2>
-      <div class="bg-primary-dark rounded-2xl border border-gray-700 overflow-hidden">
-        <div class="p-8 text-center">
-          <h3 class="font-montserrat font-bold text-2xl text-white mb-4">Plan Profesional</h3>
-          <div class="mb-6">
-            <span class="text-4xl font-bold text-accent-turquoise">Piloto 7 días gratis</span>
-          </div>
-          <p class="text-text-light mb-8">Después: Desde USD 29/mes + 10% del ahorro generado</p>
-          <ul class="text-left space-y-3 mb-8">
-            <li class="flex items-center text-text-light">
-              <svg class="w-5 h-5 text-accent-turquoise mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-              </svg>
-              Routing inteligente automático
-            </li>
-            <li class="flex items-center text-text-light">
-              <svg class="w-5 h-5 text-accent-turquoise mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-              </svg>
-              Dashboard de analytics en tiempo real
-            </li>
-            <li class="flex items-center text-text-light">
-              <svg class="w-5 h-5 text-accent-turquoise mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-              </svg>
-              Políticas de routing personalizables
-            </li>
-            <li class="flex items-center text-text-light">
-              <svg class="w-5 h-5 text-accent-turquoise mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-              </svg>
-              Soporte técnico prioritario
-            </li>
-            <li class="flex items-center text-text-light">
-              <svg class="w-5 h-5 text-accent-turquoise mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-              </svg>
-              SLA 99.9% uptime
-            </li>
-          </ul>
-          <button class="w-full bg-accent-turquoise text-primary-dark font-semibold py-3 rounded-lg hover-glow transition-all duration-300">
-            Comenzar prueba gratuita
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Final -->
   <section id="contacto" class="py-20 bg-accent-turquoise">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="font-montserrat font-bold text-4xl text-primary-dark mb-6">Solicita tu demo personalizada</h2>
-      <p class="text-xl text-primary-dark/80 mb-12">
-        Descubre cómo CheckRoutes puede optimizar tus costes de IA en una demo de 15 minutos
-      </p>
-      <form class="max-w-md mx-auto space-y-4">
-        <input type="text" placeholder="Nombre completo" class="w-full px-4 py-3 rounded-lg border-0 text-primary-dark placeholder-primary-dark/60 focus:ring-2 focus:ring-primary-dark">
-        <input type="email" placeholder="Email corporativo" class="w-full px-4 py-3 rounded-lg border-0 text-primary-dark placeholder-primary-dark/60 focus:ring-2 focus:ring-primary-dark">
-        <input type="text" placeholder="Empresa" class="w-full px-4 py-3 rounded-lg border-0 text-primary-dark placeholder-primary-dark/60 focus:ring-2 focus:ring-primary-dark">
-        <button type="submit" class="w-full bg-primary-dark text-white font-semibold py-3 rounded-lg hover:bg-secondary-dark transition-colors">
+      <p class="text-xl text-primary-dark/80 mb-8">Descubre cómo ahorrar en tus APIs de IA en solo 15 minutos</p>
+      <form action="/submit-demo" method="POST" class="max-w-md mx-auto space-y-4">
+        <div>
+          <label for="name" class="sr-only">Nombre completo</label>
+          <input id="name" type="text" placeholder="Nombre completo" class="w-full px-4 py-3 rounded-lg border-0 text-primary-dark placeholder-primary-dark/60 focus:ring-2 focus:ring-primary-dark" required>
+        </div>
+        <div>
+          <label for="email" class="sr-only">Email corporativo</label>
+          <input id="email" type="email" placeholder="Email corporativo" class="w-full px-4 py-3 rounded-lg border-0 text-primary-dark placeholder-primary-dark/60 focus:ring-2 focus:ring-primary-dark" required>
+        </div>
+        <div>
+          <label for="company" class="sr-only">Empresa</label>
+          <input id="company" type="text" placeholder="Empresa" class="w-full px-4 py-3 rounded-lg border-0 text-primary-dark placeholder-primary-dark/60 focus:ring-2 focus:ring-primary-dark" required>
+        </div>
+        <button type="submit" class="cta-button w-full bg-primary-dark text-white font-semibold py-3 rounded-lg hover:bg-secondary-dark transition-colors">
           Solicitar demo gratuita
         </button>
       </form>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="bg-primary-dark border-t border-secondary-dark py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-4 gap-8">
-        <div>
-          <div class="flex items-center mb-4">
-            <svg class="w-8 h-8 mr-3" viewBox="0 0 100 100">
-              <defs>
-                <linearGradient id="footerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style="stop-color:#C82BF9"/>
-                  <stop offset="50%" style="stop-color:#692AE8"/>
-                  <stop offset="100%" style="stop-color:#0C07D1"/>
-                </linearGradient>
-              </defs>
-              <circle cx="50" cy="50" r="45" fill="url(#footerGradient)"/>
-              <path d="M30 45 L45 60 L70 35" stroke="white" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span class="font-montserrat font-bold text-xl text-white">CheckRoutes</span>
-          </div>
-          <p class="text-text-light text-sm">
-            Optimización inteligente de costes para APIs de LLM
-          </p>
-        </div>
-        <div>
-          <h4 class="font-semibold text-white mb-4">Recursos</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="#" class="text-text-light hover:text-accent-turquoise transition-colors">Documentación</a></li>
-            <li><a href="#" class="text-text-light hover:text-accent-turquoise transition-colors">API Reference</a></li>
-            <li><a href="#" class="text-text-light hover:text-accent-turquoise transition-colors">Guías</a></li>
-            <li><a href="#" class="text-text-light hover:text-accent-turquoise transition-colors">Blog</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold text-white mb-4">Empresa</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="#" class="text-text-light hover:text-accent-turquoise transition-colors">Sobre nosotros</a></li>
-            <li><a href="#" class="text-text-light hover:text-accent-turquoise transition-colors">Privacidad</a></li>
-            <li><a href="#" class="text-text-light hover:text-accent-turquoise transition-colors">Términos</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold text-white mb-4">Contacto</h4>
-          <ul class="space-y-2 text-sm">
-            <li class="text-text-light">hello@CheckRoutes.ai</li>
-            <li class="text-text-light">+1 (555) 123-4567</li>
-            <li class="flex space-x-4 mt-4">
-              <a href="#" class="text-text-light hover:text-accent-turquoise transition-colors"><!-- Twitter --></a>
-              <a href="#" class="text-text-light hover:text-accent-turquoise transition-colors"><!-- LinkedIn --></a>
-              <a href="#" class="text-text-light hover:text-accent-turquoise transition-colors"><!-- GitHub --></a>
-            </li>
-          </ul>
-        </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="flex items-center justify-center mb-4">
+        <svg class="w-8 h-8 mr-3" viewBox="0 0 100 100">
+          <defs><linearGradient id="footerGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#C82BF9"/><stop offset="50%" style="stop-color:#692AE8"/><stop offset="100%" style="stop-color:#0C07D1"/></linearGradient></defs>
+          <circle cx="50" cy="50" r="45" fill="url(#footerGradient)"/>
+          <path d="M30 45 L45 60 L70 35" stroke="white" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="font-montserrat font-bold text-xl text-white">CheckRoutes</span>
       </div>
-      <div class="border-t border-secondary-dark mt-8 pt-8 text-center">
-        <p class="text-text-light text-sm">© 2024 CheckRoutes. Todos los derechos reservados.</p>
-      </div>
+      <p class="text-text-light text-sm">
+        © 2025 CheckRoutes | <a href="#" class="hover:text-accent-turquoise transition-colors">Políticas</a>
+      </p>
     </div>
   </footer>
 
-  <!-- Tu JS personalizado -->
   <script src="js/scripts.js"></script>
 </body>
 </html>
-
